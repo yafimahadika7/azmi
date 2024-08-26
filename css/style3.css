@@ -1,0 +1,185 @@
+:root {
+    --bg: #0a0a0a;
+    --white: white;
+    --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+}
+
+body {
+    font-size: 1.2rem;
+    font-family: 'Work Sans', sans-serif;
+    min-height: 100%;
+}
+
+.halaman3.halaman3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/bg-dasar.png);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.halaman3 {
+    position: relative;
+    min-height: 98vh;
+}
+
+.halaman3 h1, .halaman3 h4, .halaman3 p, .halaman3 h2, .halaman3 h3 {
+    text-shadow: var(--shadow);
+}
+
+.halaman3 h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 4rem;
+    color: #546b57;
+    margin-top: 50px;
+}
+
+.halaman3 h2 {
+    font-family: 'Sacramento', cursive;
+    font-size: 3rem;
+    color: #546b57;
+    margin-top: 20px;
+}
+
+.halaman3 h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #546b57;
+    margin-top: 20px;
+}
+
+.halaman3 h4 {
+    font-size: 1.1rem;
+    color: #546b57;
+    margin-top: -10px;
+}
+
+.halaman3 p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #546b57;
+    margin-top: 50px;
+}
+
+.map-responsive {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 20px;
+    max-width: 100%;
+    box-shadow: var(--shadow);
+}
+
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .halaman3 h1 {
+        font-size: 3rem;
+    }
+
+    .halaman3 h2 {
+        font-size: 2.5rem;
+    }
+
+    .halaman3 h3, .halaman3 h4, .halaman3 p {
+        font-size: 1rem;
+    }
+
+    .map-responsive {
+        padding-bottom: 75%;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.halaman3 h1, 
+.halaman3 h2, 
+.halaman3 h3, 
+.halaman3 h4, 
+.halaman3 p, 
+.map-responsive {
+    animation: slideDown 2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .halaman3 h1 {
+        font-size: 3rem;
+        animation: slideDown 2s ease-in-out;
+    }
+
+    .halaman3 h2 {
+        font-size: 2.5rem;
+        animation: slideDown 2s ease-in-out;
+    }
+
+    .halaman3 h3, .halaman3 h4, .halaman3 p {
+        font-size: 1rem;
+        animation: slideDown 2s ease-in-out;
+    }
+
+    .map-responsive {
+        padding-bottom: 75%;
+        animation: slideDown 2s ease-in-out;
+    }
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: #546b57;
+    text-decoration: none;
+    z-index: 10;
+    transition: color 0.3s ease-in-out;
+}
+
+.left-arrow {
+    left: 20px;
+}
+
+.right-arrow {
+    right: 20px;
+}
+
+.arrow:hover {
+    color: #2b3b2d; /* Warna saat di-hover */
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+    .arrow {
+        font-size: 2.5rem;
+    }
+
+    .left-arrow {
+        left: 10px; /* Sesuaikan jarak kiri untuk perangkat mobile */
+    }
+
+    .right-arrow {
+        right: 10px; /* Sesuaikan jarak kanan untuk perangkat mobile */
+    }
+}

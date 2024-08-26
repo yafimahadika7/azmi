@@ -1,0 +1,166 @@
+:root {
+    --bg: #0a0a0a;
+    --white: white;
+    --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+}
+
+body {
+    font-size: 1.2rem;
+    font-family: 'Work Sans', sans-serif;
+    min-height: 100%;
+}
+
+.halaman2::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/bg-dasar.png);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.halaman2 {
+    position: relative;
+    min-height: 98vh;
+}
+
+.halaman2 h1, .halaman2 h4, .halaman2 p, .halaman2 h2 {
+    text-shadow: var(--shadow);
+}
+
+.halaman2 h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 5rem;
+    color: #546b57;
+    margin-top: 30px;
+}
+
+.halaman2 h2 {
+    font-family: 'Sacramento', cursive;
+    font-size: 3rem;
+    color: #546b57;
+    margin-top: 30px;
+}
+
+.halaman2 h4 {
+    font-size: 1.5rem;
+    color: #546b57;
+    
+}
+
+.halaman2 p {
+    font-size: 1rem;
+    color: #546b57;
+    margin-top: 30px;
+}
+
+.halaman2 .couple {
+    margin-top: 50px;
+}
+
+.halaman2 .couple h3 {
+    font-family: 'Sacramento';
+    font-size: 2.5rem;
+    color: #546b57;
+    text-shadow: var(--shadow);
+}
+
+.halaman2 .couple img {
+    width: 100%;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.halaman2 .couple .col-lg-6:first-child {
+    animation: slideInLeft 1s ease-in-out forwards;
+}
+
+.halaman2 .couple .col-lg-6:last-child {
+    animation: slideInRight 1s ease-in-out forwards;
+}
+
+.halaman2 .couple .col-8 {
+    animation: slideInLeft 1s ease-in-out forwards;
+}
+
+.halaman2 .couple .col-4 {
+    animation: slideInRight 1s ease-in-out forwards;
+}
+
+@keyframes slideInTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.halaman2 h1, 
+.halaman2 h4, 
+.halaman2 p {
+    animation: slideInTop 1s ease-in-out forwards;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: #546b57;
+    text-decoration: none;
+    z-index: 10;
+    transition: color 0.3s ease-in-out;
+}
+
+.left-arrow {
+    left: 20px;
+}
+
+.right-arrow {
+    right: 20px;
+}
+
+.arrow:hover {
+    color: #2b3b2d; /* Warna saat di-hover */
+}
+
+@media (max-width: 768px) {
+    .arrow {
+        font-size: 2.5rem;
+    }
+
+    .left-arrow {
+        left: 10px; /* Sesuaikan jarak kiri untuk perangkat mobile */
+    }
+
+    .right-arrow {
+        right: 10px; /* Sesuaikan jarak kanan untuk perangkat mobile */
+    }
+}

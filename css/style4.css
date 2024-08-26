@@ -1,0 +1,234 @@
+:root {
+    --bg: #0a0a0a;
+    --white: white;
+    --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+}
+
+body {
+    font-size: 1.2rem;
+    font-family: 'Work Sans', sans-serif;
+    min-height: 100%;
+}
+
+.halaman4.halaman4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/bg-dasar.png);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.halaman4 {
+    position: relative;
+    min-height: 98vh;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: #546b57;
+    text-decoration: none;
+    z-index: 10;
+    transition: color 0.3s ease-in-out;
+}
+
+.left-arrow {
+    left: 20px;
+}
+
+.right-arrow {
+    right: 20px;
+}
+
+.arrow:hover {
+    color: #2b3b2d;
+}
+
+
+@media (max-width: 768px) {
+    .arrow {
+        font-size: 2.5rem;
+    }
+
+    .left-arrow {
+        left: 10px;
+    }
+
+    .right-arrow {
+        right: 10px;
+    }
+}
+
+.halaman4 h1, .halaman4 h4, .halaman4 p, .halaman4 h2, .halaman4 h3 {
+    text-shadow: var(--shadow);
+}
+
+.halaman4 h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 4rem;
+    color: #546b57;
+    margin-top: 50px;
+}
+
+.halaman4 h2 {
+    font-family: 'Sacramento', cursive;
+    font-size: 3rem;
+    color: #546b57;
+    margin-top: 20px;
+}
+
+.halaman4 h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #546b57;
+    margin-top: 20px;
+}
+
+.halaman4 h4 {
+    font-size: 1.1rem;
+    color: #546b57;
+    margin-top: -10px;
+}
+
+.halaman4 p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #546b57;
+    margin-top: 50px;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    opacity: 0; /* Mulai dengan opacity 0 */
+}
+
+/* Foto 1 dan 4 dari kiri ke kanan */
+.gallery-item:nth-child(1) {
+    animation: slideInFromLeft 0.6s forwards;
+    animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(4) {
+    animation: slideInFromLeft 0.6s forwards;
+    animation-delay: 0.6s;
+}
+
+/* Foto 3 dan 6 dari kanan ke kiri */
+.gallery-item:nth-child(3) {
+    animation: slideInFromRight 0.6s forwards;
+    animation-delay: 0.4s;
+}
+
+.gallery-item:nth-child(6) {
+    animation: slideInFromRight 0.6s forwards;
+    animation-delay: 1s;
+}
+
+/* Foto 2 dan 5 dari atas ke bawah */
+.gallery-item:nth-child(2) {
+    animation: slideInFromTop 0.6s forwards;
+    animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(5) {
+    animation: slideInFromTop 0.6s forwards;
+    animation-delay: 0.8s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 576px) {
+    .gallery-item {
+        /* Mengurangi jarak dan ukuran border-radius untuk tampilan yang lebih baik di perangkat kecil */
+        margin-bottom: 1rem; /* Jarak antara item gallery */
+        border-radius: 5px; /* Radius border yang lebih kecil */
+    }
+
+    .gallery-item img {
+        /* Memastikan gambar mengambil seluruh lebar kontainer */
+        width: 100%;
+        height: auto;
+        /* Mengurangi ukuran shadow untuk efek yang lebih lembut */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .halaman4 h1 {
+        font-size: 2.5rem; /* Ukuran font yang lebih kecil untuk tampilan mobile */
+    }
+
+    .halaman4 h2 {
+        font-size: 2rem; /* Ukuran font yang lebih kecil untuk tampilan mobile */
+    }
+
+    .halaman4 h3, .halaman4 h4, .halaman4 p {
+        font-size: 1rem; /* Ukuran font yang lebih kecil untuk tampilan mobile */
+    }
+
+    .arrow {
+        font-size: 2rem; /* Ukuran font yang lebih kecil untuk arrow */
+    }
+
+    .left-arrow {
+        left: 10px;
+    }
+
+    .right-arrow {
+        right: 10px;
+    }
+}

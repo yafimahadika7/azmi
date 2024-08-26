@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A&A Wedding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css"/>
+    <script src="countdown/simplyCountdown.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style5.css">
+</head>
+<body>
+    <section id="halaman5" class="halaman5">
+        <div class="container">
+            <a href="halaman4.html" class="arrow left-arrow">
+                <i class="bi bi-arrow-left-circle-fill"></i>
+            </a>
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2>Ucapan Dan Doa</h2>
+                    <h4>Berikan Ucapan Terbaik Untuk Kedua Mempelai</h4>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form id="commentForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Komentar</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-8">
+                    <h4>Semua Ucapan</h4>
+                    <div id="commentsList" class="list-group">
+                        <!-- Komentar akan ditambahkan di sini oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Fungsi untuk menambahkan komentar ke localStorage dan memperbarui tampilan
+        function addComment(name, comment) {
+            // Ambil data komentar dari localStorage atau buat array kosong jika tidak ada
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+            // Tambahkan komentar baru ke array
+            comments.push({ name, comment });
+
+            // Simpan kembali array komentar ke localStorage
+            localStorage.setItem('comments', JSON.stringify(comments));
+
+            // Perbarui tampilan komentar
+            displayComments();
+        }
+
+        // Fungsi untuk menampilkan komentar dari localStorage
+        function displayComments() {
+            let commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = ''; // Kosongkan daftar komentar sebelum menambah yang baru
+
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+            comments.forEach(comment => {
+                let commentElement = document.createElement('div');
+                commentElement.className = 'list-group-item comment';
+                commentElement.innerHTML = `<div class="comment-content"><h5 class="mb-1">${comment.name}</h5><p class="mb-1">${comment.comment}</p></div>`;
+                commentsList.appendChild(commentElement);
+            });
+        }
+
+        // Event listener untuk formulir komentar
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById('name').value;
+            let comment = document.getElementById('comment').value;
+
+            addComment(name, comment);
+
+            // Kosongkan formulir setelah mengirim
+            document.getElementById('commentForm').reset();
+        });
+
+        // Tampilkan komentar saat halaman dimuat
+        displayComments();
+    </script>
+</body>
+</html>
